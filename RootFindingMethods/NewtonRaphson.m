@@ -1,4 +1,5 @@
-y = @(x) x^2 - 9;
+y = @(x) x^3 - 2 * x^2 - 4;
+y1 = @(x) 3 * x^2 - 4*x;
 
 a = input("Enter a: ");
 b = input("Enter b: ");
@@ -18,14 +19,11 @@ if y(b) == 0
     return
 end
 
+c = (a+b)/2;
+
 for i = 1:100
-    c = (a+b)/2;
-    if y(a)*y(c) < 0
-        b = c;
-    else
-        a = c;
-    end
-    if abs(y(c)) < 1.0E-6
+    c = c - (y(c) / y1(c));
+    if abs(y(c)) < 1.0E-10
         break
     end
 end

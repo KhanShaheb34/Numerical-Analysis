@@ -1,4 +1,4 @@
-y = @(x) x^2 - 9;
+y = @(x) x^3 - 2 * x^2 - 4;
 
 a = input("Enter a: ");
 b = input("Enter b: ");
@@ -19,7 +19,7 @@ if y(b) == 0
 end
 
 for i = 1:100
-    c = (a * y(b) - b * y(a)) / (y(b) - y(a));
+    c = (a+b)/2;
     if y(a)*y(c) < 0
         b = c;
     else
