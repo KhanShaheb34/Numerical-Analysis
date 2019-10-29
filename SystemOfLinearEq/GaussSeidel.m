@@ -2,7 +2,6 @@ A = [4,1,2,-1; 3,6,-1,2; 2,-1,5,-3; 4,1,-3,-8];
 B = [2; -1; 3; 2];
 n = length(B);
 x = zeros(n,1);
-xn = zeros(n,1);
 x(:) = 0;
 
 for it = 1:100
@@ -14,12 +13,12 @@ for it = 1:100
                 sum += A(i, j)*x(j);
             end
         end
-        xn(i) = -1 * (sum - B(i)) / A(i,i);
-        if abs(xn(i) - x(i)) > 1e-6
+        temp = x(i);
+        x(i) = -1 * (sum - B(i)) / A(i,i);
+        if abs(temp - x(i)) > 1e-6
             conv = false;
         end
     end;
-    x = xn;
     if conv
         break
     end
