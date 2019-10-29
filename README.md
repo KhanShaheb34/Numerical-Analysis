@@ -6,3 +6,6 @@ Some Numerical Analysis methods implemented in Octave
     * Bisection Method
     * False-Position Method
     * Newton Raphson Method
+  * System Of Linear Equations
+    * Gauss-Jacobi Iterative Method
+    
