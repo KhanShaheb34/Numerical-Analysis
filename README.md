@@ -9,3 +9,6 @@ Some Numerical Analysis methods implemented in Octave
   * System Of Linear Equations
     * Gauss-Jacobi Iterative Method
     * Gauss-Seidel Iterative Method
+  * Differntial Equations
+    * Eular's Method
+    * Runge-Kutta Method
