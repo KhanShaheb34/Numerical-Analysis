@@ -1,31 +1,33 @@
-y = @(x) x^3 - 2 * x^2 - 4;
-y1 = @(x) 3 * x^2 - 4*x;
+function [root, iter] = NewtonRaphson(y, a, b)
 
-a = input("Enter a: ");
-b = input("Enter b: ");
+    pkg load symbolic
+    syms x;
+    ff = f(x);
 
-if y(a) * y(b) > 0
-    fprintf("No root in range!\n")
-    return
-end
+    y1 = diff(ff, x);
 
-if y(a) == 0
-    fprintf("%d is root\n", a)
-    return
-end
-
-if y(b) == 0
-    fprintf("%d is root\n", b)
-    return
-end
-
-c = (a+b)/2;
-
-for i = 1:100
-    c = c - (y(c) / y1(c));
-    if abs(y(c)) < 1.0E-10
-        break
+    if y(a) * y(b) > 0
+        root = 0; iter = 0;
+        fprintf("No root in range!\n")
+        return
     end
-end
 
-fprintf("The root: %d\nIterations: %d\n", c, i)
+    if y(a) == 0
+        root = a; iter = 0;
+        return
+    end
+
+    if y(b) == 0
+        root = b; iter = 0;
+        return
+    end
+
+    c = (a+b)/2;
+
+    for i = 1:100
+        c = c - (y(c) / y1(c));
+        if abs(y(c)) < 1.0E-10
+            break
+        end
+    end
+endfunction
