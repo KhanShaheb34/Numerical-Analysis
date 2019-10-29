@@ -8,4 +8,4 @@ Some Numerical Analysis methods implemented in Octave
     * Newton Raphson Method
   * System Of Linear Equations
     * Gauss-Jacobi Iterative Method
-    
+    * Gauss-Seidel Iterative Method
