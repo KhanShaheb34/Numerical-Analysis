@@ -1,6 +1,6 @@
 function [root, iter] = NewtonRaphson(y, c)
 
-    pkg load symbolic
+    pkg load symbolic;
     syms x;
     ff = y(x);
 
@@ -8,8 +8,9 @@ function [root, iter] = NewtonRaphson(y, c)
     y1 = function_handle(dif);
 
     for i = 1:100
+        oldC = c;
         c = c - (y(c) / y1(c));
-        if abs(y(c)) < 1.0E-10
+        if abs(c-oldC) < 1e-6
             break
         end
     end

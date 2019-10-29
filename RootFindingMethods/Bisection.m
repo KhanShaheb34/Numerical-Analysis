@@ -15,14 +15,17 @@ function [root, iter] = Bisection(y, a, b)
         return
     end
 
+    c = a;
+
     for i = 1:100
+        oldC = c;
         c = (a+b)/2;
         if y(a)*y(c) < 0
             b = c;
         else
             a = c;
         end
-        if abs(y(c)) < 1.0E-6
+        if abs(c - oldC) < 1e-6
             break
         end
     end

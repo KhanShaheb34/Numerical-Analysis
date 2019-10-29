@@ -3,4 +3,4 @@ a = 2.5;
 
 cd RootFindingMethods;
 
-[root iter] = NewtonRaphson(f, a)
+[root iter] = Bisection(f, 2, 3)

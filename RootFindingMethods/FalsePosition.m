@@ -15,14 +15,17 @@ function [root, iter] = FalsePosition(y, a, b)
         return
     end
 
+    c = (a+b)/2;
+
     for i = 1:100
+        oldC = y(c);
         c = (a * y(b) - b * y(a)) / (y(b) - y(a));
         if y(a)*y(c) < 0
             b = c;
         else
             a = c;
         end
-        if abs(y(c)) < 1.0E-10
+        if abs(y(c) - oldC) < 1e-6
             break
         end
     end
