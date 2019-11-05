@@ -24,7 +24,7 @@ for it = 1:100
     end
 end
 
-disp("Solution:")
+disp("Solution: ")
 x
-disp("Iteration:")
+disp("Iteration: ")
 it
